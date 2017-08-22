@@ -27,8 +27,7 @@ function getPlace(lat, long) {
 }
 
 function getWeather(lat, long) {
-	// using crossorigin.me to allow DarkSky to work in CodePen
-	var url = "https://crossorigin.me/https://api.darksky.net/forecast/3281a4257e555f65182487558ec82654/" + lat + "," + long;
+	var url = "https://api.darksky.net/forecast/3281a4257e555f65182487558ec82654/" + lat + "," + long;
 	
 	$.getJSON(url, function (data) {
 
@@ -38,7 +37,7 @@ function getWeather(lat, long) {
 			summary: data.currently.summary,
 			dayForecast: data.hourly.summary,
 			weekForecast: data.daily.summary
-		}
+		};
 
 		weather.temperature.farenheit = Math.round(data.currently.temperature, 1);
 		weather.temperature.celsius = Math.round(((data.currently.temperature - 32) / 1.8), 1);
